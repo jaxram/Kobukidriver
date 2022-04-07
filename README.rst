@@ -65,7 +65,4 @@ Steps for building the mobile robot application using the driver
 
     from kobukidriver import Kobuki
     kobuki_instance=Kobuki()
-    def start():
-        while(1):
-            #your logic
-    kobuki_instance.kobukistart(start)
+    
