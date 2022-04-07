@@ -63,9 +63,9 @@ Example code for reading basic sensor datas from Kobuki robot
 Steps for building the mobile robot application using the driver
 .. code-block:: python
 
-   from kobukidriver import Kobuki
-   kobuki_instance=Kobuki()
-   def start():
-       while(1):
+    from kobukidriver import Kobuki
+    kobuki_instance=Kobuki()
+    def start():
+        while(1):
             #your logic
-   kobuki_instance.kobukistart(start)
+    kobuki_instance.kobukistart(start)
