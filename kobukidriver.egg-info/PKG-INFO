@@ -1,0 +1,77 @@
+Metadata-Version: 2.1
+Name: kobukidriver
+Version: 0.0.1
+Summary: A simple python driver  for Kobuki mobile robot
+Home-page: UNKNOWN
+Author: Parthasarathi,Ram sankar,Ganesh
+Author-email: parthasarathi_s@tce.edu,ramsankarcsr@gmail.com,ganeshma2015@tce.edu
+License: UNKNOWN
+Description: *****
+        Kobukidriver
+        *****
+        Kobukidriver is a python driver for Kobuki quanser qbot2 which helps in control and utilization of the mobile robot.You can build numerous application with the help of the driver.
+        
+        Links
+        =====
+        
+        - Project: 
+        - PyPi: 
+        
+        Quickstart
+        ==========
+        
+        Install using pip:
+        
+        
+        ::
+        
+            pip install kobukidriver
+        
+          
+        
+        kobukidriver works in both windows and linux
+        
+        Features
+        --------
+        
+        - Develop any mobile robot applications 
+        - Gyro sensor data
+        - Docking IR data
+        - Inertial sensor data
+        - Cliff sensor data
+        - current data
+        - general purpose input data
+        - Basic sensor data
+        - Set/Clear LED
+        - Set digital output pin
+        - Control mobile robot speed
+        - Play inbuilt/custom sounds 
+        
+        Examples
+        --------
+        
+        Get started by importing the ``Kobuki`` class:
+        
+        .. code-block:: python
+            #import the kobuki class
+            from kobukidriver import Kobuki
+            #create the instance for the kobuki
+            kobuki_instance=Kobuki()#raise error if kobuki is not connected
+        
+        Example code for reading basic sensor datas from Kobuki robot
+        
+        .. code-block:: python
+            from kobukidriver import Kobuki
+            kobuki_instance=Kobuki()
+            basic_sensor_data=kobuki_instance.basic_sensor_data()
+            print(basic_sensor_data)#prints the basic sensor data from the robot
+        
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python ::3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Topic :: Communications::SerialPort::Kobuki::mobilerobots::applications
+Requires-Python: >=3.6
+Description-Content-Type: text/reStructuredText

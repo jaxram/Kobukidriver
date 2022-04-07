@@ -1,0 +1,8 @@
+LICENSE
+README.md
+setup.py
+kobukidriver/kobukidriver.egg-info/PKG-INFO
+kobukidriver/kobukidriver.egg-info/SOURCES.txt
+kobukidriver/kobukidriver.egg-info/dependency_links.txt
+kobukidriver/kobukidriver.egg-info/requires.txt
+kobukidriver/kobukidriver.egg-info/top_level.txt
