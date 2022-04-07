@@ -42,7 +42,7 @@ Features
 Examples
 --------
 
-Send notifications using the ``FCMNotification`` class:
+Send notifications using the ``Kobuki`` class:
 
 .. code-block:: python
 
