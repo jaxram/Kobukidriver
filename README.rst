@@ -55,7 +55,7 @@ Example code for reading basic sensor datas from Kobuki robot
 
 .. code-block:: python
 
-     #import the kobuki class
     from kobukidriver import Kobuki
-    #create the instance for the kobuki
-    kobuki_instance=Kobuki()#raise error if kobuki is not connected
+    kobuki_instance=Kobuki()
+    basic_sensor_data=kobuki_instance.basic_sensor_data()
+    print(basic_sensor_data)#prints the basic sensor data from the robot
