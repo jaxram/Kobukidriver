@@ -1,33 +1,13 @@
 *****
-PyFCM
+Kobukidriver
 *****
-|version| |license| 
-
-Python client for FCM - Firebase Cloud Messaging (Android, iOS and Web)
-
-Firebase Cloud Messaging (FCM) is the new version of GCM. It inherits the reliable and scalable GCM infrastructure, plus new features. GCM users are strongly recommended to upgrade to FCM.
-
-Using FCM, you can notify a client app that new email or other data is available to sync. You can send notifications to drive user reengagement and retention. For use cases such as instant messaging, a message can transfer a payload of up to 4KB to a client app.
-
-For more information, visit: https://firebase.google.com/docs/cloud-messaging/
-
+Kobukidriver is a python driver for Kobuki quanser qbot2 which helps in control and utilization of the mobile robot.You can build numerous application with the help of the driver.
 
 Links
 =====
 
-- Project: https://github.com/olucurious/pyfcm
-- PyPi: https://pypi.python.org/pypi/pyfcm/
-
-Looking for a Django version?
------------------------------
-Checkout fcm-django
-- Link: https://github.com/xtrinch/fcm-django
-
-Updates (Breaking Changes)
---------------------------
-
-- MAJOR UPDATES (AUGUST 2017): https://github.com/olucurious/PyFCM/releases/tag/1.4.0
-
+- Project: 
+- PyPi: 
 
 Quickstart
 ==========
@@ -37,20 +17,27 @@ Install using pip:
 
 ::
 
-    pip install pyfcm
+    pip install kobukidriver
 
-    OR
+  
 
-    pip install git+https://github.com/olucurious/PyFCM.git
-
-PyFCM supports Android, iOS and Web.
+kobukidriver works in both windows and linux
 
 Features
 --------
 
-- All FCM functionality covered
-- Tornado support
-
+- Develop any mobile robot applications 
+- Gyro sensor data
+- Docking IR data
+- Inertial sensor data
+- Cliff sensor data
+- current data
+- general purpose input data
+- Basic sensor data
+- Set/Clear LED
+- Set digital output pin
+- Control mobile robot speed
+- Play inbuilt/custom sounds 
 
 Examples
 --------
