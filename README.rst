@@ -46,7 +46,7 @@ Get started by importing the ``Kobuki`` class:
 
 .. code-block:: python
 
-     #import the kobuki class
+    #import the kobuki class
     from kobukidriver import Kobuki
     #create the instance for the kobuki
     kobuki_instance=Kobuki()#raise error if kobuki is not connected
