@@ -42,7 +42,7 @@ Features
 Examples
 --------
 
-Send notifications using the ``Kobuki`` class:
+Get started by importing the ``Kobuki`` class:
 
 .. code-block:: python
 
