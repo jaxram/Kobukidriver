@@ -61,8 +61,11 @@ Example code for reading basic sensor datas from Kobuki robot
     print(basic_sensor_data)#prints the basic sensor data from the robot
     
 Steps for building the mobile robot application using the driver
+
 .. code-block:: python
 
     from kobukidriver import Kobuki
     kobuki_instance=Kobuki()
+    basic_sensor_data=kobuki_instance.basic_sensor_data()
+    print(basic_sensor_data)#prints the basic sensor data from the robot
     
