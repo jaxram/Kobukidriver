@@ -66,6 +66,5 @@ Steps for building the mobile robot application using the driver
 
     from kobukidriver import Kobuki
     kobuki_instance=Kobuki()
-    basic_sensor_data=kobuki_instance.basic_sensor_data()
-    print(basic_sensor_data)#prints the basic sensor data from the robot
+    def start():
     
