@@ -6,7 +6,7 @@ Kobukidriver is a python driver for Kobuki quanser qbot2 which helps in control 
 Links
 =====
 
-- Project: 
+- Project: https://github.com/jaxram/kobuki
 - PyPi: 
 
 Quickstart
