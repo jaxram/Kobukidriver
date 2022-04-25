@@ -5,12 +5,12 @@ with open("README.rst","r") as rfile:
 
 setuptools.setup(
     name="kobukidriver",
-    version="0.0.1",
+    version="0.0.4",
     author="Parthasarathi,Ram sankar,Ganesh",
     author_email="parthasarathi_s@tce.edu,ramsankarcsr@gmail.com,ganeshma2015@tce.edu",
     description="A simple python driver  for Kobuki mobile robot",
     long_description=long_description,
-    long_description_content_type="text/reStructuredText",
+    long_description_content_type="text/markdown",
     packages=setuptools.find_packages(),
     classifiers=[
         "Intended Audience :: Developers",
