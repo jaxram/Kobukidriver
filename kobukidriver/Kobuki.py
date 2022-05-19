@@ -35,7 +35,7 @@ class Kobuki:
             ports
         )
         for kport, desc, hwid in sorted(ports):
-            
+            print(kport)
             if( desc.find('USB Serial Port')!=-1):
                 print("kobuki is connected in the Following Port")
                 print("{} {} [{}]".format(kport, desc, hwid))
@@ -49,8 +49,8 @@ class Kobuki:
                 #print(kport)
                 Kobuki.seri = ser.Serial(port=kport,baudrate=115200)
                 return Kobuki.seri
-            else:
-                raise Exception("Kobuki is not connected")
+        else:
+            raise Exception("Kobuki is not connected")
         
         
 
@@ -60,40 +60,37 @@ class Kobuki:
         __th1.start()
        
     
-    def play_on_sound():
+    def play_on_sound(self):
         barr=bytearray([170,85,3,4,1,0,6])
         #header 0,header 1,length,payload(header,length,data),checksum
         Kobuki.seri.write(barr)
         return True
-    def play_off_sound():
+    def play_off_sound(self):
         barr=bytearray([170,85,3,4,1,1,7])
         Kobuki.seri.write(barr)
         return True
-    def play_recharge_sound():
+    def play_recharge_sound(self):
         barr=bytearray([170,85,3,4,1,2,4])
         Kobuki.seri.write(barr)
         return True
-    def kokubihardwareinfo():
-        barr=bytearray([170,85,4,9,2,0,1,14])
-        Kobuki.seri.write(barr)
-        return True
-    def play_button_sound():
+    
+    def play_button_sound(self):
         barr=bytearray([170,85,3,4,1,3,5])
         Kobuki.seri.write(barr)
         return True
-    def play_error_sound():
+    def play_error_sound(self):
         barr=bytearray([170,85,3,4,1,4,2])
         Kobuki.seri.write(barr)
         return True
-    def play_clean_start_sound():
+    def play_clean_start_sound(self):
         barr=bytearray([170,85,3,4,1,5,3])
         Kobuki.seri.write(barr)
         return True
-    def play_clean_stop_sound():
+    def play_clean_stop_sound(self):
         barr=bytearray([170,85,3,4,1,6,0])
         Kobuki.seri.write(barr)
         return True
-    def play_custom_sound(note,ms):
+    def play_custom_sound(note,ms,self):
         cs=0
         freq={
             'CN4':'1389.88',#'523.25',
@@ -133,48 +130,48 @@ class Kobuki:
         Kobuki.seri.write(barr)
         return True
 
-    def set_led1_red_colour():
+    def set_led1_red_colour(self):
         barr=bytearray([170,85,4,12,2,0,1,11])
         Kobuki.seri.write(barr)
         return True
-    def set_led1_green_colour():
+    def set_led1_green_colour(self):
         barr=bytearray([170,85,4,12,2,0,2,8])
         Kobuki.seri.write(barr)
         return True
-    def clr_led1():
+    def clr_led1(self):
         barr=bytearray([170,85,4,12,2,0,0,10])
         Kobuki.seri.write(barr)
         return True
 
-    def set_led2_red_colour():
+    def set_led2_red_colour(self):
         barr=bytearray([170,85,4,12,2,0,4,14])
         Kobuki.seri.write(barr)
         return True
-    def set_led2_green_colour():
+    def set_led2_green_colour(self):
         barr=bytearray([170,85,4,12,2,0,8,2])
         Kobuki.seri.write(barr)
         return True
-    def clr_led2():
+    def clr_led2(self):
         barr=bytearray([170,85,4,12,2,0,0,10])
         Kobuki.seri.write(barr)
         return True
-    def power_on_3v3_supply():
+    def power_on_3v3_supply(self):
         barr=bytearray([170,85,4,12,2,0,0,10])
         Kobuki.seri.write(barr)
         return True
-    def set_digital_output_pin_0():
+    def set_digital_output_pin_0(self):
         barr=bytearray([170,85,4,12,2,1,0,11])
         Kobuki.seri.write(barr)
         return True
-    def set_digital_output_pin_1():
+    def set_digital_output_pin_1(self):
         barr=bytearray([170,85,4,12,2,2,0,8])
         Kobuki.seri.write(barr)
         return True
-    def set_digital_output_pin_2():
+    def set_digital_output_pin_2(self):
         barr=bytearray([170,85,4,12,2,4,0,14])
         Kobuki.seri.write(barr)
         return True
-    def set_digital_output_pin_3():
+    def set_digital_output_pin_3(self):
         barr=bytearray([170,85,4,12,2,8,0,2])
         Kobuki.seri.write(barr)
         return True
@@ -185,7 +182,18 @@ class Kobuki:
                 botradius=0
             else:
                 botradius=(230*(left_velocity+right_velocity))/(2*(right_velocity-left_velocity))
-            self.base_control(int(botspeed),int(botradius))
+            #self.base_control(int(botspeed),int(botradius))
+            cs=0
+            barr=bytearray([170,85,6,1,4])
+            
+            barr+=int(botspeed).to_bytes(2,byteorder='little',signed=True)
+
+            barr+=int(botradius).to_bytes(2,byteorder='little',signed=True)
+            for i in range(2,len(barr)-1):
+        
+                cs=cs^barr[i]
+            barr+=cs.to_bytes(1,byteorder='big')
+            Kobuki.seri.write(barr)
         elif(rotate==1):
             botspeed=(left_velocity+right_velocity)/2
             
@@ -195,19 +203,19 @@ class Kobuki:
             else:
                 botradius=(230*(left_velocity+right_velocity))/(2*(right_velocity-left_velocity))
             
-            self.base_control(int(botspeed),int(botradius))
+            cs=0
+            barr=bytearray([170,85,6,1,4])
+            
+            barr+=int(botspeed).to_bytes(2,byteorder='little',signed=True)
 
-    def base_control(speed,radius):
-        cs=0
-        barr=bytearray([170,85,6,1,4])
-        barr+=speed.to_bytes(2,byteorder='little',signed=True)
-
-        barr+=radius.to_bytes(2,byteorder='little',signed=True)
-        for i in range(2,len(barr)-1):
+            barr+=int(botradius).to_bytes(2,byteorder='little',signed=True)
+            for i in range(2,len(barr)-1):
         
-            cs=cs^barr[i]
-        barr+=cs.to_bytes(1,byteorder='big')
-        Kobuki.seri.write(barr)
+                cs=cs^barr[i]
+            barr+=cs.to_bytes(1,byteorder='big')
+            Kobuki.seri.write(barr)
+
+   
     
 
   
