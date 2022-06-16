@@ -5,7 +5,7 @@ with open("README.rst","r") as rfile:
 
 setuptools.setup(
     name="kobukidriver",
-    version="0.0.7",
+    version='0.0.7',
     
     author="Parthasarathi,Ram sankar,Ganesh",
     author_email="parthasarathi_s@tce.edu,ramsankarcsr@gmail.com,ganeshma2015@tce.edu",
