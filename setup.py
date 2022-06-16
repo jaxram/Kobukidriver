@@ -5,8 +5,8 @@ with open("README.rst","r") as rfile:
 
 setuptools.setup(
     name="kobukidriver",
-    version="0.0.4",
-    license="GNU General Public License v3 (GPLv3)",
+    version="0.0.7",
+    
     author="Parthasarathi,Ram sankar,Ganesh",
     author_email="parthasarathi_s@tce.edu,ramsankarcsr@gmail.com,ganeshma2015@tce.edu",
     description="A simple python driver  for Kobuki mobile robot",
@@ -14,14 +14,15 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     packages=setuptools.find_packages(),
     classifiers=[
+        "Topic :: Communications",
+        "Topic :: Software Development",
+        "Topic :: Utilities",
         "Intended Audience :: Developers",
-        "Programming Language :: Python ::3",
+        "Programming Language :: Python :: 3",
         "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
         "Operating System :: OS Independent",
-        "Development Status :: 5 - Production/Stable",
-        "Topic :: Communications::SerialPort::Kobuki::mobilerobots::applications"
+        #"Development Status::5 - Production/Stable",
         
-
     ],
     python_requires=">=3.6",
     py_modules=["kobukidriver"],
