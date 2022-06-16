@@ -9,7 +9,7 @@ Links
 =====
 
 - Project: https://github.com/jaxram/kobuki
-- PyPi: 
+- PyPi: https://pypi.org/project/kobukidriver/
 
 Quickstart
 ==========
